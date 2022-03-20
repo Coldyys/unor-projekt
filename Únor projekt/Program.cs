@@ -6,22 +6,28 @@ namespace Únor_projekt
     {
         static void Main(string[] args)
         {
+            //Aktuální čas
             DateTime cas = DateTime.Now;
+
+            //Vytvoření první proměnné
             int cisloMesice = cas.Month;
+
+            //Vytvoří pole o velikosti 12 měsíců
             string[] pole = { "Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Zaří", "Říjen", "Listopad", "Prosinec" };
-            Console.WriteLine($"Teď je:{pole[cisloMesice - 1]}, další měsíc: {pole[cisloMesice]}, předchozí měsíc: {pole[cisloMesice -2]}");
+
+            //Vypíše minulý, aktuální a budoucí měsíc
+            Console.WriteLine($"Teď je: {pole[cisloMesice - 1]}, další měsíc: {pole[cisloMesice]}, předchozí měsíc: {pole[cisloMesice -2]}");
             Console.Write("Zadejte číslo měsíce (1-12): ");
 
+            //Vytvoření další proměnné a konverze
             int mesic = Convert.ToInt32(Console.ReadLine());
-            int mesicPlus = mesic + 1;
             int mesicMinus = mesic - 1;
             int mesicMinusDva = mesic - 2;
 
-
+            //Vytvoření cyklů
             if (mesic >= 2 && mesic <= 11)
             {
                 Console.WriteLine($"Teď je:{pole[mesicMinus]}, další měsíc: {pole[mesic]}, předchozí měsíc: {pole[mesicMinusDva]}");
-
             }
             else if (mesic == 1)
             {
@@ -31,26 +37,23 @@ namespace Únor_projekt
             {
                 Console.WriteLine($"Teď je:{pole[11]}, další měsíc: {pole[0]}, předchozí měsíc: {pole[10]}");
             }
-            Console.WriteLine("Chcete vypsat všechny měsíce, Y/N?");
+
+            //Zeptá se jestli chceme vypsat měsíce, vybereme ano/ne (y/n)
+            Console.WriteLine("Chcete vypsat všechny měsíce, y/n?");
             string anoNe = Console.ReadLine();
-            if (anoNe == "Y")
+            if (anoNe == "y")
             {
                 foreach (string ano in pole)
                 {
                     Console.WriteLine(ano);
                 }
             }
-            else if (anoNe == "N")
+            else if (anoNe == "n")
             {
                 Console.WriteLine("Tak kys");
             }
-
-
-
-
-
-
-
+            //Kdyby se konzole vypla před vypsáním měsíců, přidáme na konec:
+            //Console.ReadKey();
         }
     }
 }
